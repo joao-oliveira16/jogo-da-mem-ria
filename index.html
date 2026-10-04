@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo da Memória - Futebol</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        
+        <div class="header-ball">⚽</div>
+        <div class="brand">JOGO DA MEMORIA</div>
+
+    </header>
+
+    <main>
+
+        <section class="game-panel">
+
+            <div class="hero">
+
+                <div class="hero-ball">⚽</div>
+
+                <h1>Jogo da Memória</h1>
+
+                <p class="subtitle">
+                    Encontre os pares das seleções!
+                </p>
+
+                <div class="accent-line">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    
+                </div>
+
+            </div>
+
+            <div class="scoreboard">
+
+                <div class="score">
+                    <span class="score-label">
+                        MOVIMENTOS
+                    </span>
+
+                    <strong id="moves">0</strong>
+                </div>
+
+                <div class="score">
+                    <span class="score-label">
+                        PARES
+                    </span>
+
+                    <strong id="pairs">0 / 5</strong>
+                </div>
+
+            </div>
+
+            
+            <div
+                id="memory-grid"
+                class="memory-grid">
+            </div>
+
+            <div class="actions">
+
+                <button
+                    id="restart"
+                    class="restart">
+                    Reiniciar jogo
+                </button>
+
+            </div>
+
+            <p
+                id="status"
+                class="status">
+                Carregando jogo...
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Jogo da Memória • Futebol
+    </footer>
+    
+
+</body>
+
+</html>

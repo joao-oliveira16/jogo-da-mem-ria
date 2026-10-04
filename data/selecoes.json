@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "pais": "Brasil",
+        "bandeira": "bra",
+        "cor": "#009c3b"
+    },
+    {
+        "id": 2,
+        "pais": "Argentina",
+        "bandeira": "arg",
+        "cor": "#75aadb"
+    },
+    {
+        "id": 3,
+        "pais": "França",
+        "bandeira": "fra",
+        "cor": "#0055a4"
+    },
+    {
+        "id": 4,
+        "pais": "Alemanha",
+        "bandeira": "ger",
+        "cor": "#222222"
+    },
+    {
+        "id": 5,
+        "pais": "Espanha",
+        "bandeira": "esp",
+        "cor": "#aa151b"
+    },
+    {
+        "id": 6,
+        "pais": "Portugal",
+        "bandeira": "por",
+        "cor": "#046a38"
+    },
+    {
+        "id": 7,
+        "pais": "Itália",
+        "bandeira": "ita",
+        "cor": "#008c45"
+    },
+    {
+        "id": 8,
+        "pais": "Inglaterra",
+        "bandeira": "eng",
+        "cor": "#fff000"
+    },
+    {
+        "id": 9,
+        "pais": "Uruguai",
+        "bandeira": "uru",
+        "cor": "#5eb6e4"
+    },
+    {
+        "id": 10,
+        "pais": "México",
+        "bandeira": "mex",
+        "cor": "#006847"
+    }
+]
