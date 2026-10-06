@@ -1,0 +1,151 @@
+[
+    {
+        "id": 1,
+        "nome": "Brasil",
+        "imagem": "imagens/brasil.png",
+        "pergunta": "Em que ano o Brasil conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "1950",
+            "1954",
+            "1958",
+            "1962"
+        ],
+        "resposta": "1958",
+        "curiosidade": "O Brasil conquistou sua primeira Copa do Mundo em 1958, na Suécia."
+    },
+
+    {
+        "id": 2,
+        "nome": "Argentina",
+        "imagem": "imagens/argentina.svg",
+        "pergunta": "Em que ano a Argentina conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "1974",
+            "1978",
+            "1982",
+            "1986"
+        ],
+        "resposta": "1978",
+        "curiosidade": "A Argentina conquistou sua primeira Copa do Mundo jogando em casa, em 1978."
+    },
+
+    {
+        "id": 3,
+        "nome": "França",
+        "imagem": "imagens/franca.webp",
+        "pergunta": "Em que ano a França conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "1990",
+            "1994",
+            "1998",
+            "2002"
+        ],
+        "resposta": "1998",
+        "curiosidade": "A França conquistou sua primeira Copa do Mundo em 1998, diante de sua torcida."
+    },
+
+    {
+        "id": 4,
+        "nome": "Alemanha",
+        "imagem": "imagens/alemanha.webp",
+        "pergunta": "Em que ano a Alemanha Ocidental conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "1950",
+            "1954",
+            "1958",
+            "1966"
+        ],
+        "resposta": "1954",
+        "curiosidade": "A Alemanha Ocidental conquistou sua primeira Copa do Mundo em 1954, na Suíça."
+    },
+
+    {
+        "id": 5,
+        "nome": "Espanha",
+        "imagem": "imagens/espanha.webp",
+        "pergunta": "Em que ano a Espanha conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "2002",
+            "2006",
+            "2010",
+            "2014"
+        ],
+        "resposta": "2010",
+        "curiosidade": "A Espanha conquistou sua primeira Copa do Mundo em 2010, na África do Sul."
+    },
+
+    {
+        "id": 6,
+        "nome": "Portugal",
+        "imagem": "imagens/portugal.webp",
+        "pergunta": "Qual foi a melhor colocação de Portugal em uma Copa do Mundo até 2022?",
+        "opcoes": [
+            "Campeão",
+            "Vice-campeão",
+            "3º lugar",
+            "4º lugar"
+        ],
+        "resposta": "3º lugar",
+        "curiosidade": "Portugal terminou em terceiro lugar na Copa do Mundo de 1966."
+    },
+
+    {
+        "id": 7,
+        "nome": "Uruguai",
+        "imagem": "imagens/uruguai.webp",
+        "pergunta": "Em que ano o Uruguai conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "1930",
+            "1934",
+            "1950",
+            "1954"
+        ],
+        "resposta": "1930",
+        "curiosidade": "O Uruguai foi o primeiro campeão da história da Copa do Mundo, em 1930."
+    },
+
+    {
+        "id": 8,
+        "nome": "Itália",
+        "imagem": "imagens/italia.webp",
+        "pergunta": "Em que ano a Itália conquistou sua primeira Copa do Mundo?",
+        "opcoes": [
+            "1930",
+            "1934",
+            "1938",
+            "1950"
+        ],
+        "resposta": "1934",
+        "curiosidade": "A Itália conquistou sua primeira Copa do Mundo em 1934, quando sediou o torneio."
+    },
+
+    {
+        "id": 9,
+        "nome": "Inglaterra",
+        "imagem": "imagens/inglaterra.svg",
+        "pergunta": "Em que ano a Inglaterra conquistou sua única Copa do Mundo?",
+        "opcoes": [
+            "1962",
+            "1966",
+            "1970",
+            "1974"
+        ],
+        "resposta": "1966",
+        "curiosidade": "A Inglaterra conquistou sua única Copa do Mundo em 1966, jogando em casa."
+    },
+
+    {
+        "id": 10,
+        "nome": "Croácia",
+        "imagem": "imagens/croacia.svg",
+        "pergunta": "Qual foi a melhor colocação da Croácia em uma Copa do Mundo até 2022?",
+        "opcoes": [
+            "Campeã",
+            "Vice-campeã",
+            "3º lugar",
+            "4º lugar"
+        ],
+        "resposta": "Vice-campeã",
+        "curiosidade": "A Croácia foi vice-campeã da Copa do Mundo de 2018 e terminou em terceiro em 2022."
+    }
+]

@@ -1,256 +1,357 @@
+const tabuleiro = document.getElementById("tabuleiro");
+const movimentosElemento = document.getElementById("movimentos");
+const paresElemento = document.getElementById("pares");
+const modalPergunta = document.getElementById("modalPergunta");
+const perguntaConteudo = document.getElementById("perguntaConteudo");
+const fecharModal = document.getElementById("fecharModal");
+const modalFinal = document.getElementById("modalFinal");
+const movimentosFinal = document.getElementById("movimentosFinal");
+const novoJogo = document.getElementById("novoJogo");
+const jogarNovamente = document.getElementById("jogarNovamente");
+
+
 let selecoes = [];
-
-const grid = document.querySelector("#memory-grid");
-const movesElement = document.querySelector("#moves");
-const pairsElement = document.querySelector("#pairs");
-const statusElement = document.querySelector("#status");
-const restartButton = document.querySelector("#restart");
-
 let cartas = [];
 let primeiraCarta = null;
 let segundaCarta = null;
 let bloqueado = false;
-
 let movimentos = 0;
 let paresEncontrados = 0;
 
 
-// Carrega os dados do arquivo JSON
+/* BUSCAR DADOS DO JSON */
+
 async function carregarDados() {
 
     try {
 
-        const resposta = await fetch("./data/selecoes.json");
-
-        if (!resposta.ok) {
-            throw new Error("Não foi possível carregar o JSON.");
-        }
-
+        const resposta = await fetch("dados/selecoes.json");
         selecoes = await resposta.json();
-
-        pairsElement.textContent =
-            `0 / ${selecoes.length}`;
-
-        criarCartas();
+        iniciarJogo();
 
     } catch (erro) {
 
-        console.error(erro);
+        console.error("Erro ao carregar o JSON:", erro);
 
-        statusElement.textContent =
-            "Erro ao carregar os dados do jogo.";
+        tabuleiro.innerHTML = `
+            <p>
+                Não foi possível carregar os dados do jogo.
+            </p>
+        `;
     }
 }
 
 
-// Embaralha as cartas
-function embaralhar(array) {
+/* INICIAR JOGO */
 
-    return array.sort(() => Math.random() - 0.5);
-}
+function iniciarJogo() {
+
+    movimentos = 0;
+    paresEncontrados = 0;
+    primeiraCarta = null;
+    segundaCarta = null;
+    bloqueado = false;
+
+    movimentosElemento.textContent = movimentos;
+    paresElemento.textContent = paresEncontrados;
+    modalFinal.classList.remove("ativo");
+    tabuleiro.innerHTML = "";
+
+    /* Cria duas cartas para cada seleção */
+
+    cartas = [];
+
+    selecoes.forEach(selecao => {
+
+        cartas.push(selecao);
+        cartas.push(selecao);
+    });
 
 
-// Cria as cartas
-function criarCartas() {
+    /* Embaralha as cartas */
 
-    const cartasDuplicadas = [
-        ...selecoes,
-        ...selecoes
-    ];
+    cartas.sort(() => Math.random() - 0.5);
 
-    cartas = embaralhar(cartasDuplicadas);
 
-    grid.innerHTML = "";
+    /* Cria as cartas na tela */
 
     cartas.forEach((selecao, index) => {
 
-        const carta = document.createElement("button");
-
-        carta.classList.add("card");
-
+        const carta = document.createElement("div");
+        carta.classList.add("carta");
         carta.dataset.id = selecao.id;
-
-        carta.setAttribute(
-            "aria-label",
-            `Carta ${index + 1}`
-        );
-
         carta.innerHTML = `
-            <div class="card-inner">
 
-                <div class="card-face card-back"></div>
+            <div class="carta-inner">
 
-                <div class="card-face card-front">
-
-                    <div
-                        class="crest"
-                        style="--crest-color: ${selecao.cor}"
-                    >
-                        ${selecao.bandeira}
-                    </div>
-
-                    <span class="country">
-                        ${selecao.pais}
-                    </span>
-
+                <div class="carta-verso">
+                    
                 </div>
 
+                <div class="carta-frente">
+
+                    <img
+                        src="${selecao.imagem}"
+                        alt="${selecao.nome}"
+                    >
+
+                    <span>
+                        ${selecao.nome}
+                    </span>
+                </div>
             </div>
         `;
 
-        carta.addEventListener(
-            "click",
-            () => virarCarta(carta)
-        );
+        carta.addEventListener("click", () => virarCarta(carta));
+        tabuleiro.appendChild(carta);
 
-        grid.appendChild(carta);
     });
 }
 
 
-// Vira uma carta
+/* VIRAR CARTA */
+
 function virarCarta(carta) {
 
     if (bloqueado) return;
-
     if (carta === primeiraCarta) return;
-
-    if (carta.classList.contains("is-matched")) return;
-
-    carta.classList.add("is-flipped");
+    if (carta.classList.contains("encontrada")) return;
+    carta.classList.add("virada");
 
     if (!primeiraCarta) {
 
         primeiraCarta = carta;
 
-        statusElement.textContent =
-            "Escolha a segunda carta.";
-
         return;
+
     }
 
     segundaCarta = carta;
-
     movimentos++;
-
-    atualizarPlacar();
-
+    movimentosElemento.textContent = movimentos;
     verificarPar();
 }
 
 
-// Verifica se é um par
+/* VERIFICAR PAR */
+
 function verificarPar() {
 
-    const primeiroId =
-        primeiraCarta.dataset.id;
+    const mesmoId =
+        primeiraCarta.dataset.id === segundaCarta.dataset.id;
 
-    const segundoId =
-        segundaCarta.dataset.id;
+    if (mesmoId) {
 
-    if (primeiroId === segundoId) {
-
-        primeiraCarta.classList.add("is-matched");
-        segundaCarta.classList.add("is-matched");
-
-        primeiraCarta.disabled = true;
-        segundaCarta.disabled = true;
-
-        paresEncontrados++;
-
-        atualizarPlacar();
-
-        statusElement.textContent =
-            "Par encontrado! ⚽";
-
-        resetarEscolha();
-
-        verificarFim();
+        encontrouPar();
 
     } else {
 
-        bloqueado = true;
+        errouPar();
+    }
+}
 
-        statusElement.textContent =
-            "Não foi dessa vez...";
 
+/* ACERTOU */
+
+function encontrouPar() {
+
+    primeiraCarta.classList.add("encontrada");
+    segundaCarta.classList.add("encontrada");
+
+    const id = Number(primeiraCarta.dataset.id);
+    const selecao = selecoes.find(item => item.id === id);
+
+    paresEncontrados++;
+    paresElemento.textContent = paresEncontrados;
+    primeiraCarta = null;
+    segundaCarta = null;
+
+
+    /* Abre a pergunta depois de um pequeno intervalo */
+
+    setTimeout(() => {
+
+        mostrarPergunta(selecao);
+    }, 500);
+}
+
+
+/* ERROU */
+
+function errouPar() {
+
+    bloqueado = true;
+
+    setTimeout(() => {
+
+        primeiraCarta.classList.remove("virada");
+        segundaCarta.classList.remove("virada");
+        primeiraCarta = null;
+        segundaCarta = null;
+        bloqueado = false;
+    }, 900);
+}
+
+
+/* MOSTRAR PERGUNTA */
+
+function mostrarPergunta(selecao) {
+
+    modalPergunta.classList.add("ativo");
+
+    perguntaConteudo.innerHTML = `
+
+        <img
+            class="pergunta-imagem"
+            src="${selecao.imagem}"
+            alt="${selecao.nome}"
+        >
+
+        <h2>
+            🇺🇳 ${selecao.nome}
+        </h2>
+
+        <p class="pergunta">
+            ${selecao.pergunta}
+        </p>
+
+        <div class="opcoes">
+
+            ${selecao.opcoes.map(opcao => `
+
+                <button
+                    class="opcao"
+                    data-resposta="${opcao}"
+                >
+                    ${opcao}
+                </button>
+
+            `).join("")}
+        </div>
+    `;
+
+
+    const botoes = document.querySelectorAll(".opcao");
+
+
+    botoes.forEach(botao => {
+
+        botao.addEventListener("click", () => {
+
+            verificarResposta(
+                botao.dataset.resposta,
+                selecao
+            );
+        });
+    });
+}
+
+
+/* VERIFICAR RESPOSTA DO QUIZ */
+
+function verificarResposta(resposta, selecao) {
+
+    const acertou = resposta === selecao.resposta;
+    const botoes = document.querySelectorAll(".opcao");
+
+    botoes.forEach(botao => {
+
+        botao.disabled = true;
+
+        if (botao.dataset.resposta === selecao.resposta) {
+
+            botao.style.background = "#198754";
+            botao.style.color = "white";
+        }
+    });
+
+
+    if (acertou) {
+
+        perguntaConteudo.innerHTML += `
+
+            <div class="resultado correto">
+
+                ✅ Resposta correta!
+            </div>
+
+            <div class="curiosidade">
+
+                💡 <strong>Curiosidade:</strong><br>
+                ${selecao.curiosidade}
+            </div>
+        `;
+
+    } else {
+
+        perguntaConteudo.innerHTML += `
+
+            <div class="resultado errado">
+
+                ❌ Resposta incorreta.<br>
+                A resposta correta é:
+                <strong>${selecao.resposta}</strong>
+            </div>
+
+            <div class="curiosidade">
+
+                💡 <strong>Curiosidade:</strong><br>
+                ${selecao.curiosidade}
+            </div>
+        `;
+    }
+
+
+    /* Botão para continuar */
+
+    const botaoContinuar = document.createElement("button");
+
+    botaoContinuar.classList.add("botao");
+    botaoContinuar.textContent = "Continuar";
+
+    botaoContinuar.addEventListener("click", () => {
+        modalPergunta.classList.remove("ativo");
+        verificarFim();
+    });
+    perguntaConteudo.appendChild(botaoContinuar);
+
+}
+
+
+/* VERIFICAR FIM DO JOGO */
+
+function verificarFim() {
+    if (paresEncontrados === selecoes.length) {
         setTimeout(() => {
 
-            primeiraCarta.classList.remove(
-                "is-flipped"
-            );
-
-            segundaCarta.classList.remove(
-                "is-flipped"
-            );
-
-            resetarEscolha();
-
-            bloqueado = false;
-
-            statusElement.textContent =
-                "Tente novamente!";
-
-        }, 800);
+            movimentosFinal.textContent = movimentos;
+            modalFinal.classList.add("ativo");
+        }, 400);
     }
 }
 
 
-// Reseta a seleção
-function resetarEscolha() {
+/* FECHAR MODAL */
 
-    primeiraCarta = null;
-    segundaCarta = null;
-}
+fecharModal.addEventListener("click", () => {
 
-
-// Atualiza o placar
-function atualizarPlacar() {
-
-    movesElement.textContent =
-        movimentos;
-
-    pairsElement.textContent =
-        `${paresEncontrados} / ${selecoes.length}`;
-}
+    modalPergunta.classList.remove("ativo");
+    verificarFim();
+});
 
 
-// Verifica se o jogador ganhou
-function verificarFim() {
+/* NOVO JOGO */
 
-    if (paresEncontrados === selecoes.length) {
-
-        statusElement.textContent =
-            `Parabéns! Você terminou em ${movimentos} movimentos! 🏆`;
-    }
-}
+novoJogo.addEventListener("click", () => {
+    iniciarJogo();
+});
 
 
-// Reinicia o jogo
-function reiniciarJogo() {
-
-    movimentos = 0;
-    paresEncontrados = 0;
-
-    primeiraCarta = null;
-    segundaCarta = null;
-
-    bloqueado = false;
-
-    atualizarPlacar();
-
-    statusElement.textContent =
-        "Boa sorte! ⚽";
-
-    criarCartas();
-}
+jogarNovamente.addEventListener("click", () => {
+    iniciarJogo();
+});
 
 
-restartButton.addEventListener(
-    "click",
-    reiniciarJogo
-);
+/* COMEÇAR */
 
-
-// Primeiro carrega o JSON
 carregarDados();

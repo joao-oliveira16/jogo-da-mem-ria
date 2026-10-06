@@ -1,101 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jogo da Memória - Futebol</title>
+    <title>Copa Memória</title>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header class="site-header">
-        
-        <div class="header-ball">⚽</div>
-        <div class="brand">JOGO DA MEMORIA</div>
-
+    <header>
+        <div class="logo">
+            ⚽
+            <span>COPA MEMÓRIA</span>
+        </div>
     </header>
 
     <main>
 
-        <section class="game-panel">
+        <section class="game-container">
 
-            <div class="hero">
+            <div class="titulo">
+                <div class="bola">⚽</div>
 
-                <div class="hero-ball">⚽</div>
+                <h1>JOGO DA MEMÓRIA</h1>
 
-                <h1>Jogo da Memória</h1>
+                <p>Encontre os pares das seleções!</p>
+            </div>
 
-                <p class="subtitle">
-                    Encontre os pares das seleções!
-                </p>
+            <div class="informacoes">
 
-                <div class="accent-line">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    
+                <div class="info-box">
+                    <span>MOVIMENTOS</span>
+                    <strong id="movimentos">0</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>PARES</span>
+                    <strong>
+                        <span id="pares">0</span> / 10
+                    </strong>
                 </div>
 
             </div>
 
-            <div class="scoreboard">
+            <div id="tabuleiro" class="tabuleiro"></div>
 
-                <div class="score">
-                    <span class="score-label">
-                        MOVIMENTOS
-                    </span>
-
-                    <strong id="moves">0</strong>
-                </div>
-
-                <div class="score">
-                    <span class="score-label">
-                        PARES
-                    </span>
-
-                    <strong id="pairs">0 / 5</strong>
-                </div>
-
-            </div>
-
-            
-            <div
-                id="memory-grid"
-                class="memory-grid">
-            </div>
-
-            <div class="actions">
-
-                <button
-                    id="restart"
-                    class="restart">
-                    Reiniciar jogo
-                </button>
-
-            </div>
-
-            <p
-                id="status"
-                class="status">
-                Carregando jogo...
-            </p>
+            <button id="novoJogo" class="botao">
+                🔄 Novo jogo
+            </button>
 
         </section>
 
     </main>
 
-    <footer>
-        Jogo da Memória • Futebol
-    </footer>
-    
+    <!-- Modal da pergunta -->
+    <div id="modalPergunta" class="modal">
+
+        <div class="modal-content">
+
+            <button id="fecharModal" class="fechar">
+                ×
+            </button>
+
+            <div id="perguntaConteudo"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Tela final -->
+    <div id="modalFinal" class="modal">
+
+        <div class="modal-content final">
+
+            <div class="trofeu">
+                🏆
+            </div>
+
+            <h2>Parabéns!</h2>
+
+            <p>Você encontrou todos os pares!</p>
+
+            <p>
+                Movimentos:
+                <strong id="movimentosFinal">0</strong>
+            </p>
+
+            <button id="jogarNovamente" class="botao">
+                Jogar novamente
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
 
 </body>
-
 </html>
