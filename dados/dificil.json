@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "nome": "Brasil",
+        "imagem": "imagens/brasil.png",
+        "pergunta": "Qual jogador brasileiro é o maior artilheiro da história da seleção em Copas do Mundo?",
+        "opcoes": [
+            "Pelé",
+            "Ronaldo",
+            "Romário",
+            "Neymar"
+        ],
+        "resposta": "Ronaldo",
+        "curiosidade": "Ronaldo marcou 15 gols em Copas do Mundo pelo Brasil."
+    },
+    {
+        "id": 2,
+        "nome": "Argentina",
+        "imagem": "imagens/argentina.svg",
+        "pergunta": "Qual seleção a Argentina derrotou na final da Copa do Mundo de 1978?",
+        "opcoes": [
+            "Alemanha Ocidental",
+            "Holanda",
+            "Itália",
+            "Brasil"
+        ],
+        "resposta": "Holanda",
+        "curiosidade": "A Argentina venceu a Holanda por 3 a 1 na prorrogação e conquistou seu primeiro título mundial."
+    },
+    {
+        "id": 3,
+        "nome": "França",
+        "imagem": "imagens/franca.webp",
+        "pergunta": "Qual foi o placar da final da Copa do Mundo de 1998?",
+        "opcoes": [
+            "1 a 0",
+            "2 a 0",
+            "3 a 0",
+            "3 a 1"
+        ],
+        "resposta": "3 a 0",
+        "curiosidade": "A França venceu o Brasil por 3 a 0 e conquistou seu primeiro título mundial."
+    },
+    {
+        "id": 4,
+        "nome": "Alemanha",
+        "imagem": "imagens/alemanha.webp",
+        "pergunta": "Quem marcou o gol do título da Alemanha na final da Copa do Mundo de 2014?",
+        "opcoes": [
+            "Thomas Müller",
+            "Miroslav Klose",
+            "Mario Götze",
+            "Mesut Özil"
+        ],
+        "resposta": "Mario Götze",
+        "curiosidade": "Mario Götze marcou o gol do título alemão na prorrogação contra a Argentina."
+    },
+    {
+        "id": 5,
+        "nome": "Espanha",
+        "imagem": "imagens/espanha.webp",
+        "pergunta": "Quem marcou o gol da Espanha na final da Copa do Mundo de 2010?",
+        "opcoes": [
+            "David Villa",
+            "Xavi",
+            "Andrés Iniesta",
+            "Fernando Torres"
+        ],
+        "resposta": "Andrés Iniesta",
+        "curiosidade": "Iniesta marcou na prorrogação e deu à Espanha seu primeiro título mundial."
+    },
+    {
+        "id": 6,
+        "nome": "Portugal",
+        "imagem": "imagens/portugal.webp",
+        "pergunta": "Quem foi o artilheiro de Portugal na Copa do Mundo de 1966?",
+        "opcoes": [
+            "Eusébio",
+            "Cristiano Ronaldo",
+            "Luís Figo",
+            "Pauleta"
+        ],
+        "resposta": "Eusébio",
+        "curiosidade": "Eusébio marcou 9 gols na Copa de 1966."
+    },
+    {
+        "id": 7,
+        "nome": "Uruguai",
+        "imagem": "imagens/uruguai.webp",
+        "pergunta": "Qual seleção o Uruguai derrotou na final da primeira Copa do Mundo?",
+        "opcoes": [
+            "Argentina",
+            "Brasil",
+            "Itália",
+            "Iugoslávia"
+        ],
+        "resposta": "Argentina",
+        "curiosidade": "O Uruguai venceu a Argentina por 4 a 2 na decisão de 1930."
+    },
+    {
+        "id": 8,
+        "nome": "Itália",
+        "imagem": "imagens/italia.webp",
+        "pergunta": "Qual seleção a Itália derrotou na final da Copa do Mundo de 2006?",
+        "opcoes": [
+            "Alemanha",
+            "França",
+            "Brasil",
+            "Argentina"
+        ],
+        "resposta": "França",
+        "curiosidade": "A Itália venceu a França nos pênaltis após empate em 1 a 1."
+    },
+    {
+        "id": 9,
+        "nome": "Inglaterra",
+        "imagem": "imagens/inglaterra.svg",
+        "pergunta": "Qual seleção a Inglaterra derrotou na final da Copa do Mundo de 1966?",
+        "opcoes": [
+            "Brasil",
+            "Portugal",
+            "Alemanha Ocidental",
+            "Argentina"
+        ],
+        "resposta": "Alemanha Ocidental",
+        "curiosidade": "A Inglaterra venceu a Alemanha Ocidental por 4 a 2 na prorrogação."
+    },
+    {
+        "id": 10,
+        "nome": "Croácia",
+        "imagem": "imagens/croacia.svg",
+        "pergunta": "Qual seleção derrotou a Croácia na final da Copa do Mundo de 2018?",
+        "opcoes": [
+            "Brasil",
+            "França",
+            "Alemanha",
+            "Argentina"
+        ],
+        "resposta": "França",
+        "curiosidade": "A França venceu a Croácia por 4 a 2 e conquistou seu segundo título mundial."
+    }
+]

@@ -7,12 +7,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-    background: linear-gradient(
-        135deg,
-        #01753f,
-        #00552a,
-        #00361d
-    );
+    background: linear-gradient(135deg, #01753f, #00552a, #00361d);
     color: white;
 }
 
@@ -45,13 +40,12 @@ main {
 }
 
 .game-container {
-
     width: 100%;
     max-width: 850px;
     padding: 35px;
     border: 2px solid rgba(255,255,255,0.7);
     border-radius: 25px;
-    background: rgba(0, 150, 70, 0.25);
+    background: rgba(0,150,70,0.25);
     backdrop-filter: blur(5px);
     text-align: center;
 }
@@ -88,7 +82,6 @@ main {
 /* INFORMAÇÕES */
 
 .informacoes {
-
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -96,7 +89,6 @@ main {
 }
 
 .info-box {
-
     min-width: 120px;
     padding: 12px 20px;
     border: 1px solid rgba(255,255,255,0.8);
@@ -118,7 +110,6 @@ main {
 /* TABULEIRO */
 
 .tabuleiro {
-
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
@@ -129,14 +120,12 @@ main {
 /* CARTAS */
 
 .carta {
-
     aspect-ratio: 0.72;
     perspective: 1000px;
     cursor: pointer;
 }
 
 .carta-inner {
-
     width: 100%;
     height: 100%;
     position: relative;
@@ -150,7 +139,6 @@ main {
 
 .carta-frente,
 .carta-verso {
-
     position: absolute;
     width: 100%;
     height: 100%;
@@ -159,10 +147,9 @@ main {
     border: 2px solid rgba(255,255,255,0.8);
 }
 
-/* verso */
+/* VERSO */
 
 .carta-verso {
-
     background:
         repeating-linear-gradient(
             45deg,
@@ -179,10 +166,9 @@ main {
     font-size: 30px;
 }
 
-/* frente */
+/* FRENTE */
 
 .carta-frente {
-
     background: white;
     transform: rotateY(180deg);
     display: flex;
@@ -194,7 +180,6 @@ main {
 }
 
 .carta-frente img {
-
     width: 75%;
     max-height: 65%;
     object-fit: contain;
@@ -202,12 +187,11 @@ main {
 }
 
 .carta-frente span {
-
     font-size: 13px;
     font-weight: bold;
 }
 
-/* par encontrado */
+/* PAR ENCONTRADO */
 
 .carta.encontrada .carta-frente {
     border: 3px solid #ffe600;
@@ -216,21 +200,18 @@ main {
 /* BOTÃO */
 
 .botao {
-
     margin-top: 25px;
-    border: none;
     padding: 12px 25px;
+    border: none;
     border-radius: 10px;
     background: white;
     color: #003a1f;
-    font-weight: bold;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .botao:hover {
-
     transform: scale(1.05);
     background: #f0f0f0;
 }
@@ -238,7 +219,6 @@ main {
 /* MODAL */
 
 .modal {
-
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.65);
@@ -254,7 +234,6 @@ main {
 }
 
 .modal-content {
-
     width: 100%;
     max-width: 500px;
     background: white;
@@ -267,7 +246,6 @@ main {
 }
 
 @keyframes aparecer {
-
     from {
         opacity: 0;
         transform: scale(0.8);
@@ -277,11 +255,9 @@ main {
         opacity: 1;
         transform: scale(1);
     }
-
 }
 
 .fechar {
-
     position: absolute;
     top: 10px;
     right: 15px;
@@ -293,7 +269,6 @@ main {
 }
 
 .pergunta-imagem {
-
     width: 80px;
     height: 80px;
     object-fit: contain;
@@ -301,26 +276,22 @@ main {
 }
 
 .modal-content h2 {
-
     color: #014224;
     margin-bottom: 15px;
 }
 
 .pergunta {
-
     font-size: 19px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 .opcoes {
-
     display: grid;
     gap: 10px;
 }
 
 .opcao {
-
     padding: 12px;
     border: 2px solid #008f4c;
     border-radius: 10px;
@@ -329,17 +300,16 @@ main {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.2s;
 }
 
 .opcao:hover {
-
     background: #008f4c;
     color: white;
 }
 
-.resultado {
+/* RESULTADO */
 
+.resultado {
     margin-top: 15px;
     padding: 12px;
     border-radius: 10px;
@@ -347,19 +317,16 @@ main {
 }
 
 .correto {
-
     background: #d4edda;
     color: #155724;
 }
 
 .errado {
-
     background: #f8d7da;
     color: #721c24;
 }
 
 .curiosidade {
-
     margin-top: 15px;
     padding: 12px;
     background: #fff8d6;
@@ -368,30 +335,27 @@ main {
     font-size: 14px;
 }
 
+/* TELA FINAL */
 
 .trofeu {
-
     font-size: 65px;
     margin-bottom: 10px;
 }
 
 .final h2 {
-
     font-size: 30px;
     color: #036336;
     margin-bottom: 10px;
 }
 
 .final p {
-
     margin-bottom: 10px;
     font-size: 17px;
 }
 
-
+/* RESPONSIVO */
 
 @media (max-width: 700px) {
-
     header {
         padding: 15px 20px;
     }
@@ -416,11 +380,9 @@ main {
     .carta-frente span {
         font-size: 10px;
     }
-
 }
 
 @media (max-width: 450px) {
-
     .tabuleiro {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -437,5 +399,4 @@ main {
     .info-box strong {
         font-size: 18px;
     }
-
 }

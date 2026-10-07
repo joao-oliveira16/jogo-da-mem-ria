@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Copa Memória</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            ⚽
+
+            <span>COPA MEMÓRIA</span>
+
+            <a href="./inicio.html" class="voltar">
+                ← Voltar
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="game-container">
+
+            <div class="titulo">
+
+                <div class="bola">
+                    ⚽
+                </div>
+
+                <h1>JOGO DA MEMÓRIA</h1>
+
+                <p> Memorize as posições e encontre os pares!</p>
+
+                <span class="nivel nivel-dificil">
+                    🔴 MODO DIFÍCIL
+                </span>
+            </div>
+
+
+            <div class="informacoes">
+
+                <div class="info-box">
+
+                    <span>MOVIMENTOS</span>
+
+                    <strong id="movimentos">
+                        0
+                    </strong>
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>LIMITE</span>
+                    <strong>25</strong>
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>PARES</span>
+
+                    <strong>
+
+                        <span id="pares">
+                            0
+                        </span>
+
+                        / 10
+                    </strong>
+                </div>
+            </div>
+
+
+            <p
+                id="mensagem" class="mensagem"
+            >
+            </p>
+
+
+            <div
+                id="tabuleiro" class="tabuleiro"
+            >
+            </div>
+
+
+            <button
+                id="novoJogo" class="botao"
+            >
+                🔄 Novo jogo
+            </button>
+        </section>
+    </main>
+
+
+    <!-- CONTAGEM DE 5 SEGUNDOS -->
+
+    <div
+        id="contagem" class="contagem"
+    >
+
+        <div class="contagem-conteudo">
+
+            <div
+                id="numeroContagem" class="numero-contagem"
+            >
+                5
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PERGUNTA -->
+
+    <div
+        id="modalPergunta"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                id="fecharModal" class="fechar"
+            >
+                ×
+            </button>
+
+            <div id="perguntaConteudo"></div>
+        </div>
+    </div>
+
+
+    <!-- FINAL -->
+
+    <div
+        id="modalFinal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <div class="pergunta-imagem">
+                🏆
+            </div>
+
+            <h2> Parabéns!</h2>
+
+            <p class="pergunta"> Você conseguiu encontrar todos os pares! </p>
+
+            <p>
+                Movimentos:
+                <strong id="movimentosFinal">
+                    0
+                </strong>
+            </p>
+
+            <button
+                id="jogarNovamente"
+                class="botao"
+            >
+                Jogar novamente
+            </button>
+        </div>
+    </div>
+
+
+    <script src="js/dificil.js"></script>
+
+</body>
+
+</html>
